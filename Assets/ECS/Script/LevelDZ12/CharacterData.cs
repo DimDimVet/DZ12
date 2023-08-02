@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,11 @@ using Zenject;
 
 public class CharacterData : MonoBehaviour
 {
-    public int CurrentLvl = 1;//стартовый уровень
-    public int Score = 0;//очки условные
-    public int ScoreToNextLvl = 20;//количество очков для перехода уровня
+    public List<MonoBehaviour> lvlUpAction;//создадим лист внешних скриптов с событиями
+    [SerializeField] private int currentLvl = 1;//стартовый уровень
+    public int CurrentLvl => currentLvl;
+    [SerializeField] private int score = 0;//очки условные
+    private int scoreToNextLvl = 100;//количество очков для перехода уровня
 
     //Zenject
     private IHealtEnemy healtEnemy;
@@ -16,17 +19,39 @@ public class CharacterData : MonoBehaviour
     public void Init(IHealtEnemy d)
     {
         healtEnemy = d;
-        
+    }
+
+    //
+    private void CountScore(IHealtEnemy hEnemy)
+    {
+        if (hEnemy.isUpData)
+        {
+            score += hEnemy.GetDamageEnemy();
+            Debug.Log(score);
+            hEnemy.isUpData = false;
+        }
+        if (score>=scoreToNextLvl)
+        {
+            LvlUp();
+        }
+    }
+
+    private void LvlUp()
+    {
+        currentLvl++;
+        scoreToNextLvl *= 2;
+        for (int i = 0; i < lvlUpAction.Count; i++)//найдем в листе соотв скрипты, и дернем метод LevelUp
+        {
+            if (lvlUpAction[i] is ILevelUp levelUp)
+            {
+                levelUp.LevelUp(this, currentLvl);
+            }
+        }
     }
 
     private void Update()
     {
-        if (healtEnemy.isUpData)
-        {
-            Score += healtEnemy.GetDamageEnemy();
-            Debug.Log(Score);
-            healtEnemy.isUpData = false;
-        }
+        CountScore(healtEnemy);
     }
         
 

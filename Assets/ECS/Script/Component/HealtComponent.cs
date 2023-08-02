@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HealtComponent : MonoBehaviour
 {
     public Settings SettingsData;
-    [HideInInspector]public int Healt=0;
+    /*[HideInInspector]*/public int Healt=0;
     [HideInInspector] public bool Dead = false;
     [SerializeField] private Text text;
     public bool statusEnemy;
@@ -30,7 +30,7 @@ public class HealtComponent : MonoBehaviour
     {
         if (Healt <= 0)
         {
-            Healt = SettingsData.HealtPlayer;
+            Healt += SettingsData.HealtPlayer;//по заданию 12, с повышением уцровня добавляем некое количество изначально
         }
 
         text.text = $"Healt = {Healt}";
@@ -38,6 +38,11 @@ public class HealtComponent : MonoBehaviour
 
     public void UpData()//для DZ11 обновить данные при изменение источника загрузки
     {
+        DataStart();
+    }
+    public void LvlUpData(int healtLvl)//для DZ11 обновить данные при изменение источника загрузки
+    {
+        Healt += healtLvl;
         DataStart();
     }
 

@@ -52,9 +52,7 @@ public class HealtEnemyComponent : MonoBehaviour
     public void HealtContoll(int damage)
     {
         Healt -= damage;
-        //
-        healtEnemy.isUpData = true;
-        healtEnemy.SetDamageEnemy(Healt);
+        
         //
         text.text = $"Healt = {Healt}";
         if (Healt<=0)
@@ -65,6 +63,12 @@ public class HealtEnemyComponent : MonoBehaviour
             {
                 collider.enabled = false;
             }
+        }
+        else
+        {
+            //
+            healtEnemy.isUpData = true;
+            healtEnemy.SetDamageEnemy(Healt);
         }
 
     }

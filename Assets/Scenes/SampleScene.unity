@@ -6406,9 +6406,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1aee9bcbc52abd4e8aee3b8604138f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentLvl: 1
-  Score: 0
-  ScoreToNextLvl: 20
+  lvlUpAction:
+  - {fileID: 606222540}
+  currentLvl: 1
+  score: 0
+--- !u!114 &606222540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606222510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4546d3c5f0785ec4da4ec20f226fec24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLvl: 2
 --- !u!1 &612515902
 GameObject:
   m_ObjectHideFlags: 0
