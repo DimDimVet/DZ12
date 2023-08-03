@@ -7,9 +7,13 @@ using Zenject;
 public class CharacterData : MonoBehaviour
 {
     public List<MonoBehaviour> lvlUpAction;//создадим лист внешних скриптов с событиями
-    [SerializeField] private int currentLvl = 1;//стартовый уровень
     public int CurrentLvl => currentLvl;
-    [SerializeField] private int score = 0;//очки условные
+
+    public GameObject InventoryUIRoot;//объект для инвентаря
+    private List<IItem> items;
+
+    private int currentLvl = 1;//стартовый уровень
+    private int score = 0;//очки условные
     private int scoreToNextLvl = 100;//количество очков для перехода уровня
 
     //Zenject
@@ -27,10 +31,9 @@ public class CharacterData : MonoBehaviour
         if (hEnemy.isUpData)
         {
             score += hEnemy.GetDamageEnemy();
-            Debug.Log(score);
             hEnemy.isUpData = false;
         }
-        if (score>=scoreToNextLvl)
+        if (score >= scoreToNextLvl)
         {
             LvlUp();
         }
@@ -53,7 +56,7 @@ public class CharacterData : MonoBehaviour
     {
         CountScore(healtEnemy);
     }
-        
+
 
 }
 

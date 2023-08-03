@@ -40,7 +40,7 @@ public class HealtComponent : MonoBehaviour
     {
         DataStart();
     }
-    public void LvlUpData(int healtLvl)//для DZ11 обновить данные при изменение источника загрузки
+    public void LvlUpData(int healtLvl)//для DZ12 обновить данные при изменение источника загрузки
     {
         Healt += healtLvl;
         DataStart();
