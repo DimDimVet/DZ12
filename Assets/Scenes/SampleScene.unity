@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 83825957}
   - component: {fileID: 83825956}
   m_Layer: 0
-  m_Name: PickUpItem (2)
+  m_Name: PickUpItemH (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df40fb060d707c7478cc7111cf7097b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ItemUI: {fileID: 703325033036780192, guid: 9fcd497c3bb6c6a489bc545da0a86d63, type: 3}
+  _ItemUI: {fileID: 746386618570738890, guid: e37c0f8cd70577d4b9dcbe607408e756, type: 3}
 --- !u!114 &83825957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12232,7 +12232,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1497587806}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1497587806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13247,6 +13259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1944691343}
   - component: {fileID: 1944691344}
+  - component: {fileID: 1944691345}
   m_Layer: 5
   m_Name: Invertar
   m_TagString: Untagged
@@ -13291,6 +13304,21 @@ MonoBehaviour:
   openCanvasButton: {fileID: 267363030}
   closeCanvasButton: {fileID: 303770418}
   canvas: {fileID: 765048872}
+--- !u!114 &1944691345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944691342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03e2b33ab898ed45ae13cd8d12dfcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CraftSettings: {fileID: 11400000, guid: 412d766ab47e8f24583f11f4a07a0e46, type: 2}
+  craftButton: {fileID: 1497587805}
+  gridUI: {fileID: 264532588}
 --- !u!1 &2007461996
 GameObject:
   m_ObjectHideFlags: 0
@@ -16046,7 +16074,7 @@ GameObject:
   - component: {fileID: 8700473805714801142}
   - component: {fileID: 8700473805714801144}
   m_Layer: 0
-  m_Name: PickUpItem
+  m_Name: PickUpItemH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16107,7 +16135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df40fb060d707c7478cc7111cf7097b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ItemUI: {fileID: 703325033036780192, guid: 9fcd497c3bb6c6a489bc545da0a86d63, type: 3}
+  _ItemUI: {fileID: 746386618570738890, guid: e37c0f8cd70577d4b9dcbe607408e756, type: 3}
 --- !u!135 &8700473805714801145
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,18 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraftSettings : MonoBehaviour
+[CreateAssetMenu(fileName = "CraftSettings",menuName ="Creat Craft Data")]
+public class CraftSettings : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<CraftCombinat> combinatItem;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[Serializable]
+public class CraftCombinat
+{
+    public List<string> Sources;
+    public GameObject rezult;
 }

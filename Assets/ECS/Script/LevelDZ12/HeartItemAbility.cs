@@ -38,5 +38,4 @@ public class HeartItemAbility : MonoBehaviour, ICollisionsComponent,ICraft
     {
         _colliders = colliders;
     }
-
 }
