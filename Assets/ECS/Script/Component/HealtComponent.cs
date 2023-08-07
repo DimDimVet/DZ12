@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HealtComponent : MonoBehaviour
 {
     public Settings SettingsData;
-    /*[HideInInspector]*/public int Healt=0;
+    [HideInInspector] public int Healt=0;
     [HideInInspector] public bool Dead = false;
     [SerializeField] private Text text;
     public bool statusEnemy;
