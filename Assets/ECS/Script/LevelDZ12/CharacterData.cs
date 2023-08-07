@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -10,10 +8,9 @@ public class CharacterData : MonoBehaviour
     public int CurrentLvl => currentLvl;
 
     public GameObject InventoryUIRoot;//объект для инвентаря
-    private List<IItem> items;
 
-    private int currentLvl = 1;//стартовый уровень
-    private int score = 0;//очки условные
+    [SerializeField] private int currentLvl = 1;//стартовый уровень
+    [SerializeField] private int score = 0;//очки условные
     private int scoreToNextLvl = 100;//количество очков для перехода уровня
 
     //Zenject

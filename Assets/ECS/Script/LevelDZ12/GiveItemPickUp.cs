@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 
-public class GiveItemPickUp : MonoBehaviour,IItem, ICollisionsComponent, IConvertGameObjectToEntity//IConvertGameObjectToEntity - для получения инфы об ентити
+public class GiveItemPickUp : MonoBehaviour, ICollisionsComponent, IConvertGameObjectToEntity//IConvertGameObjectToEntity - для получения инфы об ентити
 {
 
     public GameObject _ItemUI;//картинка которая выведется внутри инвентаря
@@ -19,8 +19,8 @@ public class GiveItemPickUp : MonoBehaviour,IItem, ICollisionsComponent, IConver
             CharacterData characterData = colliders[i].GetComponent<CharacterData>();
             if (characterData != null)
             {
-                var item = GameObject.Instantiate(ItemUI,characterData.InventoryUIRoot.transform);
-                var newAbility = item.GetComponent<ICollisionsComponent>();//новый объект заполним  в лист
+                GameObject item = GameObject.Instantiate(ItemUI,characterData.InventoryUIRoot.transform);
+                ICollisionsComponent newAbility = item.GetComponent<ICollisionsComponent>();//новый объект заполним  в лист
                 if (newAbility!=null)
                 {
                     newAbility.Execute(colliders);
@@ -33,11 +33,6 @@ public class GiveItemPickUp : MonoBehaviour,IItem, ICollisionsComponent, IConver
                 return;
             }
         }
-    }
-
-    public void UseItem(CharacterData data)
-    {
-        throw new System.NotImplementedException();
     }
 
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)

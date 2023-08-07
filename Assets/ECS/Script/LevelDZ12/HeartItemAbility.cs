@@ -14,8 +14,6 @@ public class HeartItemAbility : MonoBehaviour, ICollisionsComponent,ICraft
 
     private List<Collider> _colliders = new List<Collider>();
 
-   
-
     public void Work()
     {
         for (int i = 0; i < _colliders.Count; i++)

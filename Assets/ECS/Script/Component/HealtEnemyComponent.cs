@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Entities;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -12,7 +10,7 @@ public class HealtEnemyComponent : MonoBehaviour
     [HideInInspector] public bool Dead = false;
     [SerializeField] private Text text;
     private Animator animator;
-    private Collider collider;
+    private Collider coll;
     //Zenject
     private IHealtEnemy healtEnemy;
 
@@ -25,7 +23,7 @@ public class HealtEnemyComponent : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        collider = GetComponent<Collider>();
+        coll = GetComponent<Collider>();
         StartCoroutine(Example());
     }
 
@@ -59,9 +57,9 @@ public class HealtEnemyComponent : MonoBehaviour
         {
             animator.SetBool("Dead", true);
             Dead = true;
-            if (collider!=null)
+            if (coll!=null)
             {
-                collider.enabled = false;
+                coll.enabled = false;
             }
         }
         else
